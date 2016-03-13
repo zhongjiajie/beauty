@@ -34,4 +34,5 @@
 <p>　　</p>
 
 <B>4.截图目录如下</B>
-<p>![image](https://github.com/zhongjiajie/crawler-beauty/raw/master/SampleResult.jpg)</p>
+<br/>
+![image](https://github.com/zhongjiajie/crawler-beauty/raw/master/SampleResult.jpg)
