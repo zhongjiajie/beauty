@@ -34,4 +34,4 @@
 <p>　　</p>
 
 <B>4.截图目录如下</B>
-![image](https://github.com/zhongjiajie/crawler-beauty/edit/master/SampleResult.jpg)
+![image](https://github.com/ButBueatiful/dotvim/raw/master/screenshots/vim-screenshot.jpg)
