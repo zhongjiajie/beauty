@@ -16,7 +16,8 @@
 <p>1.操作指南</p>
 <p>直接运行xiuren_bs4_version.py,默认的下载目录为E:/beauty/需要修改直接在文件中修改即可</p>
 <br/>
-<B>3.下载完后的目录情况（其中****视网站更新情况有所不同）</B>
+#两个版本公共说明
+<B>1.下载完后的目录情况（其中****视网站更新情况有所不同）</B>
 <div class="cnblogs_Highlighter">
 <pre class="brush:html;gutter:true;">E:
   /Photo
@@ -39,6 +40,6 @@
 </div>
 <p>　　</p>
 
-<B>4.截图目录如下</B>
+<B>2.截图目录如下</B>
 <br/>
 ![image](https://github.com/zhongjiajie/crawler-beauty/raw/master/SampleResult.jpg)
