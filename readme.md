@@ -25,7 +25,7 @@ python beauty.py download xiuren
 # 下载秀人套图 指定数量为15 
 python beauty.py download xiuren -n 15
 
-# 下载秀人套图 指定路径为该
+# 下载秀人套图 指定路径为D:/
 python beauty.py download xiuren -p D:/
 ```
 完成后可在相应目录下看到下载结果
