@@ -1,40 +1,67 @@
-# crawler-beauty
-这是一个**Python的爬虫程序**，实现了对某图片写真网站内容的爬取，有两个版本，分别是**BeautifulSoup版本**和**re版本**，实现的方法都是一样的，只是具体的实现细节不同
+# beauty
+[beauty](https://github.com/zhongjiajie/beauty)是图片网站[55156图库-高清套图](http://www.55156.com/gaoqingtaotu/)非官方的API。提供了更加清爽的套图浏览和下载接口，欢迎各位老司机使用，提issues或PR
 
-## re版本
-### 1.怎么工作
-* 请在E盘创建一个目录Photo，即路径为：`E:\Photo`,当然路径可以修改，具体修改方式在程序的注释中已说明
-* 为什么不在程序中自动生成文件夹？------- 我只是怕你不知道哪个是你要的小黄图而已，自己新建的文件夹你总会记得吧
-### 2.程序完善时间列表
-* [ 16/02/23 ]  发现程序`xiuren_useful.py`爬到第十五个秀人图片时产生错误，正在研究为什么会有这样的错误产生
-* [ 16/03/13 ]  修正了正则表达式上的错误，实现了全部的爬取，正在验证是否还存在问题
-* [ 16/05/02 ]  添加了**bs4版本**，可以将全部图片完整的爬取下来
+## 安装依赖
+项目根目录运行
+```
+pip install -r requirements.txt
+```
 
+## 快速入门
+**以下命令均在项目根目录运行**
 
-## bs4版本
-### 1.怎么工作
-* 运行`xiuren_bs4_version.py`就可以对网站进行爬取，其中默认的下载目录为`E:/beauty/`需要修改可在Python程序*对应位置进行修改*
-### 2.程序完善时间列表
-* [ 16/05/02 ]  添加了bs4版本，可以将全部图片完整的爬取下来
+* 查看Usage及支持的套图类型
+```
+python beauty.py -h
+```
+	* **Usage**： 得知项目主要有两个方法`scan`和`download`，其中`scan`是浏览指定种类和数量的封面图片（小图），`download`是下载指定种类和数量的套图（大图）。
+	* **Arguments**： 目前支持的套图种类，为`scan`和`download`方法的必填项
+	* **Options**： 参数的关键字及对应的解释
 
-## 爬取结果
-### 1.下载完后的目录情况
-*  /Photo
- * /[秀人网]********
-      * _1.jpg
-      * _2.jpg
-      * ......
-      * 10.jpg
-      * ......
-      * n.jpg
- * /[秀人网]********
-      * _1.jpg
-      * _2.jpg
-      * ......
-      * 10.jpg
-      * ......
-      * n.jpg
- * ......
+* 直接下载套图
+```
+# 下载秀人套图 默认数量为10 默认路径是./pic
+python beauty.py download xiuren
 
-### 2.截图目录如下
-![image](https://github.com/zhongjiajie/crawler-beauty/raw/master/SampleResult.jpg)
+# 下载秀人套图 指定数量为15 
+python beauty.py download xiuren -n 15
+
+# 下载秀人套图 指定路径为该
+python beauty.py download xiuren -p D:/
+```
+完成后可在相应目录下看到下载结果
+![image](https://github.com/zhongjiajie/beauty/raw/master/support_file/beauty_download.png)
+
+* 先浏览小图，根据个人喜好（套图质量）下载对应的大图
+```
+# 浏览秀人套图 默认数量为10 默认路径是./pic/scan
+python beauty.py scan xiuren
+
+# 浏览秀人套图 指定数量为15
+python beauty.py scan xiuren -n 15
+
+# 浏览秀人套图 指定路径为D:/scan scan方法默认的图片会下载到指定（默认目录）的scan文件夹
+python beauty.py download xiuren -p D:/
+```
+找到浏览套图文件夹`scan`，打开图片编辑器查看`scan`文件夹的图片，并找到你想要完整下载的套图
+![image](https://github.com/zhongjiajie/beauty/raw/master/support_file/beauty_scan.png)
+运行下载命令
+```
+# -n参数要和scan方法的参数一样 -f参数列表内部不要留空格
+python beauty.py download xiuren -n 10 -f [204774,204775,204832]
+```
+完成后可在相应目录下看到下载结果
+![image](https://github.com/zhongjiajie/beauty/raw/master/support_file/beauty_scan_download.png)
+
+## 注意事项
+* 项目开发环境是Python2.7，如果发现项目不兼容的欢迎提[issues](https://github.com/zhongjiajie/beauty/issues/new)
+* 
+
+## TODO
+* [x] 提供先浏览后选择下载的功能 finish at 20170827
+* [ ] 下载图片失败后重试
+* [ ] 重试失败后删除失效的图片，或者在单独的文件夹中备注下载失败的信息
+
+## Change Log
+* 20170828: 重写了repository，重命名为**beauty**，提供了更加人性化的api方法
+* 20160220: 提供了re版本和BeautifulSoup版本的提取方法
