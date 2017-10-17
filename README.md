@@ -4,29 +4,30 @@
 ## 安装依赖
 项目根目录运行
 ```
-pip install -r requirements.txt
+pip install beauty
 ```
 
 ## 快速入门
 **以下命令均在项目根目录运行**
 ### 查看Usage及支持的套图类型
 ```
-python beauty.py -h
+beauty -h
 ```
 * **Usage**： 得知项目主要有两个方法`scan`和`download`，其中`scan`是浏览指定种类和数量的封面图片（小图），`download`是下载指定种类和数量的套图（大图）。
-* **Arguments**： 目前支持的套图种类，为`scan`和`download`方法的必填项
 * **Options**： 参数的关键字及对应的解释
+* **Arguments**： 目前支持的套图种类，为`scan`和`download`方法的必填项
+* 如果提示`'beauty' 不是内部或外部命令，也不是可运行的程序`，请将`$PYTHON/Scripts`添加到环境变量
 
 ### 直接下载套图
 ```
 # 下载秀人套图 默认数量为10 默认路径是./pic
-python beauty.py download xiuren
+beauty download xiuren
 
 # 下载秀人套图 指定数量为15 
-python beauty.py download xiuren -n 15
+beauty download xiuren -n 15
 
 # 下载秀人套图 指定路径为D:/
-python beauty.py download xiuren -p D:/
+beauty download xiuren -p D:/
 ```
 完成后可在相应目录下看到下载结果
 
@@ -35,13 +36,13 @@ python beauty.py download xiuren -p D:/
 ### 先浏览小图，根据个人喜好（套图质量）下载对应的大图
 ```
 # 浏览秀人套图 默认数量为10 默认路径是./pic/scan
-python beauty.py scan xiuren
+beauty scan xiuren
 
 # 浏览秀人套图 指定数量为15
-python beauty.py scan xiuren -n 15
+beauty scan xiuren -n 15
 
 # 浏览秀人套图 指定路径为D:/scan scan方法默认的图片会下载到指定（默认目录）的scan文件夹
-python beauty.py download xiuren -p D:/
+beauty download xiuren -p D:/
 ```
 找到浏览套图文件夹`scan`，打开图片编辑器查看`scan`文件夹的图片
 
@@ -50,7 +51,7 @@ python beauty.py download xiuren -p D:/
 从上图中找到要完整下载的套图，运行下载命令
 ```
 # -n参数要和scan方法的参数一样 -f参数列表内部不要留空格
-python beauty.py download xiuren -n 10 -f [204774,204775,204832]
+beauty download xiuren -n 10 -f [204774,204775,204832]
 ```
 完成后可在相应目录下看到下载结果
 
@@ -65,5 +66,6 @@ python beauty.py download xiuren -n 10 -f [204774,204775,204832]
 * [ ] 重试失败后删除失效的图片，或者在单独的文件夹中备注下载失败的信息
 
 ## Change Log
+* 20171017：制作成pip安装包提供cli命令接口
 * 20170828: 重写了repository，重命名为**beauty**，提供了更加人性化的api方法
 * 20160220: 提供了re版本和BeautifulSoup版本的提取方法
