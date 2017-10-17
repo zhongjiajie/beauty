@@ -1,1 +1,0 @@
-from beauty import Beauty
