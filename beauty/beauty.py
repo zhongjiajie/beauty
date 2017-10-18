@@ -194,7 +194,7 @@ class Beauty(object):
             shutil.rmtree(path)
 
 
-__version__ = 'beauty 0.3'
+__version__ = 'beauty 0.3.2'
 
 NAME = {
     'xiuren': ['http://www.55156.com/gaoqingtaotu/xiuren/', u'秀人网'],

@@ -7,6 +7,12 @@ convenient API to download beauty picture.
 from setuptools import setup, find_packages
 from beauty import beauty
 
+try:
+    import pypandoc
+    long_description = pypandoc.convert('README.md', 'rst')
+except(OSError, IOError, ImportError):
+    long_description = open('README.md').read()
+
 VERSION = beauty.__version__.split()[1]
 
 setup(
@@ -17,6 +23,7 @@ setup(
     author='zhongjiajie',
     author_email='zhongjiajie955@hotmail.com',
     description=__doc__.strip('\n'),
+    long_description=long_description,
     packages=find_packages(),
     include_package_data=True,
     # scripts=['bin/beauty.py'],
